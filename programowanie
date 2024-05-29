@@ -1,0 +1,49 @@
+pierwszy dzień:
+1.
+class Solution {
+public:
+    vector<int> twoSum(vector<int> &nums, int target) {
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = i + 1; j < nums.size(); j++) {
+                if (nums[j] == target - nums[i]) {
+                    return {i, j};
+                }
+            }
+        }
+        
+        return {};
+    }
+};
+2.
+/**
+ * @param {number} n
+ * @return {Function} counter
+ */
+var createCounter = function(n) {
+    let currentCount = n -1;
+    return function() {
+        currentCount +=1;
+        return currentCount;
+    };
+};
+
+/** 
+ * const counter = createCounter(10)
+ * counter() // 10
+ * counter() // 11
+ * counter() // 12
+ */
+3.
+/**
+ * @return {null|boolean|number|string|Array|Object}
+ */
+Array.prototype.last = function() {
+    if(this.length ===0){
+        return -1;
+    }
+    else{
+        return this[this.length -1];
+    }
+    
+};
+
