@@ -1,0 +1,25 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+
+var isValid = function(s) {
+    const stack = [];
+    const parens = '() {} []';
+    let i = 0;
+
+    while(i < s.length){//0<2->true| 1 < 2 -> true| 2<2 while(false)
+        stack.push(s[i]);//s[0] stack = ['('] | s[1] stack =['(', '}']
+        i++; // i =1| i= 2
+
+        let open = stack[stack.length - 2]; // stack[1-2]=stack[-1]=undefind| stack[2-2]=stack[0]='('
+        let closed = stack[stack.length - 1];// stack[1-1]=stack[0]='(' | stack[2-1]=stack[1]='}' |
+        let potParens = open + closed; // undefind + '(' = 'undefind(' | '(' + '}' = '(}' |
+
+        if(parens.includes(potParens)){ //'() {} []'.includes('undefind(') = false if(false)| //'() {} []'.includes('(}') = false
+            stack.pop(); // | |
+            stack.pop(); // | |
+        }
+    }
+    return stack.length === 0; // 2 === 0 -> false 
+};
